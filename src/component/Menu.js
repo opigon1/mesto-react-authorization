@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Menu({ email, onLogout, active, setActive }) {
+function Menu({ email, onLogout, active }) {
   return (
     <div
       className={

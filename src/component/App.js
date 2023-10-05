@@ -30,14 +30,16 @@ function App() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    api
-      .getAllInfo()
-      .then(([cardData, userData]) => {
-        setCurrentUser(userData);
-        setCards(cardData);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (IsLogged) {
+      api
+        .getAllInfo()
+        .then(([cardData, userData]) => {
+          setCurrentUser(userData);
+          setCards(cardData);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [IsLogged]);
 
   React.useEffect(() => {
     const token = localStorage.getItem("token");
@@ -50,7 +52,7 @@ function App() {
         })
         .catch((err) => console.log(err));
     }
-  }, [navigate]);
+  }, []);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
