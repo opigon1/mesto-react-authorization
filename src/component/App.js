@@ -52,7 +52,7 @@ function App() {
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [IsLogged, navigate]);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -175,7 +175,7 @@ function App() {
           path="/sign-in"
           element={
             <Login
-              handeShowInfoMessage={handleShowInfoMessage}
+            handleShowInfoMessage={handleShowInfoMessage}
               onLogin={handleLogin}
             />
           }
